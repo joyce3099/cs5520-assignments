@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View ,Button, Modal} from 'react-native'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import { commonStyles } from '../StyleHelper' 
+import FinalContent from '../components/FinalContent'
 
 const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
   
@@ -16,24 +17,6 @@ const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
 
   console.log("from final",randomNumber)
 
-  const finalContent = () =>{
-    if (won) {
-      const imageUrl = `https://picsum.photos/id/${randomNumber}/100/100`;
-      return (
-        <View>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-        </View>
-        )
-      } else {
-          const sadFace = require('../assets/Sad-Face.png'); 
-          return (
-            <View>
-              <Image source={sadFace} style={styles.image} />
-            </View>
-          );
-      }
-    }
-
     return (
       <View style={styles.outerContainer}>
       <Modal visible={finalVisible}>
@@ -41,7 +24,10 @@ const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
       <Header title="Game is over"/>
       <Card>
       <Text style={commonStyles.message}>Here's your picture</Text>
-        {finalContent()}
+       <FinalContent 
+        won={won}
+        randomNumber={randomNumber}
+       />
         <View style={commonStyles.button}>
           <Button title="Start Again" onPress={handlePlayAgain} />
         </View>
