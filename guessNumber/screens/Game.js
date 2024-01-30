@@ -2,8 +2,8 @@ import { Button, Modal, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import Final from './Final'
-
 import GameMessage from '../components/GameMessage'
+import GradientBackground from '../components/GradientBackground'
 
 const Game = ({modalVisible,dismissModal,name,number,winGame,setWinGame,randomNumber,attempts,handleReset,setChecked,setConfirmDisabled}) => {
 
@@ -33,7 +33,7 @@ const Game = ({modalVisible,dismissModal,name,number,winGame,setWinGame,randomNu
     return (
       <View >
         <Modal visible={modalVisible} >
-        <View style={styles.modalCenteredView}>
+        <GradientBackground style={styles.modalCenteredView}>
           <Card >
           <GameMessage 
             winGame={winGame}
@@ -53,7 +53,7 @@ const Game = ({modalVisible,dismissModal,name,number,winGame,setWinGame,randomNu
               handleReset={handleReset}
             />
           </Card>
-          </View>
+          </GradientBackground>
         </Modal>
       </View>
       
@@ -63,12 +63,11 @@ const Game = ({modalVisible,dismissModal,name,number,winGame,setWinGame,randomNu
 export default Game
 
 const styles = StyleSheet.create({
-
   modalCenteredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:"#EDE6F7",
+    // backgroundColor:"#EDE6F7",
   },
 
 });

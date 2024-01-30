@@ -4,6 +4,7 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import { commonStyles } from '../StyleHelper' 
 import FinalContent from '../components/FinalContent'
+import GradientBackground from '../components/GradientBackground'
 
 const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
   
@@ -20,7 +21,7 @@ const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
     return (
       <View style={styles.outerContainer}>
       <Modal visible={finalVisible}>
-      <View style={styles.modalCenteredView}>
+      <GradientBackground style={styles.modalCenteredView}>
       <Header title="Game is over"/>
       <Card>
       <Text style={commonStyles.message}>Here's your picture</Text>
@@ -32,7 +33,7 @@ const Final = ({ won,finalVisible,closeFinal,randomNumber,handleReset} ) => {
           <Button title="Start Again" onPress={handlePlayAgain} />
         </View>
       </Card>
-      </View>
+      </GradientBackground>
       </Modal>
       </View>
       
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor:"#EDE6F7",
+      // backgroundColor:"#EDE6F7",
     },
     message:{
       fontSize: 18, 
